@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ravenEye — Strategic Reconnaissance in Orbit</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <style>
+      body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: #0b0e11; 
+        color: #f1f5f9;
+        overflow-x: hidden;
+      }
+      .gradient-text { 
+        background: linear-gradient(to right, #60a5fa, #38bdf8); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent;
+        animation: gradient 8s ease infinite;
+      }
+      @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .hero-bg {
+        background: radial-gradient(circle at center, rgba(96, 165, 250, 0.1) 0%, rgba(11, 14, 17, 0) 70%);
+      }
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #60a5fa;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .tech-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .tech-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(96, 165, 250, 0.1);
+      }
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 100;
+      }
+      
+      .hamburger span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: #fff;
+        transition: all 0.3s ease;
+      }
+      
+      .hamburger span:nth-child(1) { top: 0; }
+      .hamburger span:nth-child(2) { top: 9px; }
+      .hamburger span:nth-child(3) { top: 18px; }
+      
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 9px;
+      }
+      
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 9px;
+      }
+      
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+        
+        nav {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 70%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.95);
+          backdrop-filter: blur(10px);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: right 0.3s ease;
+          z-index: 99;
+        }
+        
+        nav.active {
+          right: 0;
+        }
+        
+        nav a {
+          margin: 20px 0;
+          font-size: 1.2rem;
+        }
+        
+        .nav-link::after {
+          bottom: -8px;
+        }
+      }
+    </style>
+  </head>
+  <body class="scroll-smooth">
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-80 backdrop-blur-md border-b border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold tracking-wide text-white" data-aos="fade-right">ravenEye</h1>
+        
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav class="space-x-6 text-gray-300 text-sm" id="nav">
+          <a href="#mission" class="nav-link hover:text-white">Mission</a>
+          <a href="#tech" class="nav-link hover:text-white">Technology</a>
+          <a href="#contact" class="nav-link hover:text-white">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center justify-center px-4 hero-bg" id="home">
+      <div class="text-center mt-20" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="text-4xl sm:text-6xl font-extrabold gradient-text mb-6">See Everything. From Orbit.</h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">ravenEye builds modular satellite platforms and drones for top level surveillance and electronic warfare. We deliver zero-day intelligence and orbital surveillance with uncompromising precision.</p>
+        <a href="#contact" class="mt-10 inline-block bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 px-6 rounded-xl transition transform hover:scale-105">Get in Touch</a>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="py-24 px-6 bg-[#0f1318]" id="mission">
+      <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+        <h3 class="text-3xl font-bold mb-6">Our Mission</h3>
+        <p class="text-gray-400 text-lg">We are building the next-generation reconnaissance and offensive cyber capabilities to give defenders first-strike visibility. Our systems combine autonomous satellite constellations with AI-powered drones which can help to deliver persistent awareness — in cyberspace and beyond.</p>
+      </div>
+    </section>
+
+    <!-- Technology -->
+    <section class="py-24 px-6 bg-[#0b0e11]" id="tech">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h3 class="text-3xl font-bold mb-4">Modular Space Systems</h3>
+          <p class="text-gray-400 mb-6">Launch-ready surveillance satellites designed for rapid deployment and targeted coverage. Our software-defined orbits let you track assets, borders, or adversaries at will.</p>
+
+          <h3 class="text-3xl font-bold mb-4 mt-10">AI integrated drones for electronic warfare</h3>
+          <p class="text-gray-400">Our custom AI engines autonomously reverse-engineer binaries, hunt for vulnerabilities, and prioritize targets — operating as the first line of digital reconnaissance.</p>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-lg border border-gray-700 tech-card" data-aos="fade-left">
+          <img src="image.jpg" alt="Satellite imagery" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="py-24 px-6 bg-[#0f1318]" id="contact">
+      <div class="max-w-2xl mx-auto text-center" data-aos="fade-up">
+        <h3 class="text-3xl font-bold mb-6">Let's Talk</h3>
+        <p class="text-gray-400 mb-6">Interested in early access, partnerships, or defense applications? Reach out — we're listening.</p>
+        <a href="mailto:founder@ravenstack.io" class="text-blue-500 hover:text-blue-400 underline text-lg transition-colors duration-300">vsinghr21191@gmail.com</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-gray-600 text-sm border-t border-gray-800 bg-black">
+      &copy; 2025 RavenStack. All rights reserved.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+
+      // Hamburger Menu Functionality
+      const hamburger = document.getElementById('hamburger');
+      const nav = document.getElementById('nav');
+      const navLinks = document.querySelectorAll('nav a');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+      });
+
+      // Close menu when clicking a link
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          nav.classList.remove('active');
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
+          hamburger.classList.remove('active');
+          nav.classList.remove('active');
+        }
+      });
+
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
