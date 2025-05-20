@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ravenEye — Strategic Reconnaissance in Orbit</title>
+    <title>NextLevel — A Defence Company</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
@@ -26,7 +26,33 @@
         100% { background-position: 0% 50%; }
       }
       .hero-bg {
+        position: relative;
         background: radial-gradient(circle at center, rgba(96, 165, 250, 0.1) 0%, rgba(11, 14, 17, 0) 70%);
+        overflow: hidden;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('https://d1sr9z1pdl3mb7.cloudfront.net/wp-content/uploads/2020/12/11151135/biometric-identification-facial-recognition.jpg') center/cover;
+        opacity: 0.5;
+        z-index: -1;
+      }
+      .hero-content {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .hero-content.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
       .nav-link {
         position: relative;
@@ -46,10 +72,23 @@
       }
       .tech-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
       .tech-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(96, 165, 250, 0.1);
+        box-shadow: 0 10px 30px rgba(96, 165, 250, 0.2);
+      }
+      .feature-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(96, 165, 250, 0.2);
       }
       .hamburger {
         display: none;
@@ -127,7 +166,7 @@
     <!-- Navbar -->
     <header class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-80 backdrop-blur-md border-b border-gray-800">
       <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold tracking-wide text-white" data-aos="fade-right">ravenEye</h1>
+        <h1 class="text-xl font-bold tracking-wide text-white" data-aos="fade-right">NextLevel</h1>
         
         <!-- Hamburger Menu -->
         <div class="hamburger" id="hamburger">
@@ -145,10 +184,10 @@
     </header>
 
     <!-- Hero -->
-    <section class="min-h-screen flex items-center justify-center px-4 hero-bg" id="home">
-      <div class="text-center mt-20" data-aos="fade-up" data-aos-duration="1000">
+    <section class="hero-bg" id="home">
+      <div class="hero-content text-center px-4">
         <h2 class="text-4xl sm:text-6xl font-extrabold gradient-text mb-6">See Everything. From Orbit.</h2>
-        <p class="text-lg text-gray-400 max-w-2xl mx-auto">ravenEye builds modular satellite platforms and drones for top level surveillance and electronic warfare. We deliver zero-day intelligence and orbital surveillance with uncompromising precision.</p>
+        <p class="text-lg text-white-400 max-w-2xl mx-auto">NextLevel builds modular satellite platforms and drones for top level surveillance and electronic warfare. We deliver zero-day intelligence and orbital surveillance with uncompromising precision.</p>
         <a href="#contact" class="mt-10 inline-block bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 px-6 rounded-xl transition transform hover:scale-105">Get in Touch</a>
       </div>
     </section>
@@ -157,22 +196,54 @@
     <section class="py-24 px-6 bg-[#0f1318]" id="mission">
       <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
         <h3 class="text-3xl font-bold mb-6">Our Mission</h3>
-        <p class="text-gray-400 text-lg">We are building the next-generation reconnaissance and offensive cyber capabilities to give defenders first-strike visibility. Our systems combine autonomous satellite constellations with AI-powered drones which can help to deliver persistent awareness — in cyberspace and beyond.</p>
+        <p class="text-gray-400 text-lg mb-12">We are building the next-generation reconnaissance and offensive cyber capabilities to give defenders first-strike visibility. Our systems combine autonomous satellite constellations with AI-powered drones which can help to deliver persistent awareness — in cyberspace and beyond.</p>
+        
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+          <div class="feature-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://i.pinimg.com/736x/49/b0/33/49b033d7cabf2165a7fcf28ecfca1946.jpg" alt="Satellite" class="w-full h-200 object-cover rounded-lg mb-4">
+            <!-- <img src="https://i.pinimg.com/736x/db/ac/b3/dbacb337a2e8b7e0aacf85973f51ff2d.jpg" alt="Satellite" class="w-full h-200 object-cover rounded-lg mb-4"> -->
+            <h4 class="text-xl font-bold mb-2">Orbital Surveillance</h4>
+            <p class="text-gray-400">Advanced satellite systems for comprehensive coverage</p>
+          </div>
+          <div class="feature-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+            <!-- <img src="https://i.pinimg.com/736x/49/b0/33/49b033d7cabf2165a7fcf28ecfca1946.jpg" alt="Satellite" class="w-full h-200 object-cover rounded-lg mb-4"> -->
+            <img src="https://i.pinimg.com/736x/f6/77/cd/f677cd37f8536142816574330f7e6a00.jpg" alt="Satellite" class="w-full h-200 object-cover rounded-lg mb-4">
+            <!-- <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="AI" class="w-full h-200 object-cover rounded-lg mb-4"> -->
+            <h4 class="text-xl font-bold mb-2">Next Gen Defense Products</h4>
+            <p class="text-gray-400">Unmatched defense products for the future</p>
+          </div>
+          <div class="feature-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+            <img src="https://i.pinimg.com/736x/e7/32/e5/e732e532a61d74c57b6d42647167749f.jpg" alt="Satellite" class="w-full h-200 object-cover rounded-lg mb-4">
+            <!-- <img src="https://i.pinimg.com/736x/61/a2/27/61a2278f86db0bd3a23ed65e2fd18ef4.jpg" alt="Security" class="w-full h-200 object-cover rounded-lg mb-4"> -->
+            <h4 class="text-xl font-bold mb-2">Swarm of Drones</h4>
+            <p class="text-gray-400">Artificial Intelligence powered swarm of drones</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Technology -->
     <section class="py-24 px-6 bg-[#0b0e11]" id="tech">
-      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div data-aos="fade-right">
-          <h3 class="text-3xl font-bold mb-4">Modular Space Systems</h3>
-          <p class="text-gray-400 mb-6">Launch-ready surveillance satellites designed for rapid deployment and targeted coverage. Our software-defined orbits let you track assets, borders, or adversaries at will.</p>
-
-          <h3 class="text-3xl font-bold mb-4 mt-10">AI integrated drones for electronic warfare</h3>
-          <p class="text-gray-400">Our custom AI engines autonomously reverse-engineer binaries, hunt for vulnerabilities, and prioritize targets — operating as the first line of digital reconnaissance.</p>
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+          <div data-aos="fade-right">
+            <h3 class="text-3xl font-bold mb-4">Modular Space Systems</h3>
+            <p class="text-gray-400 mb-6">Launch-ready surveillance satellites designed for rapid deployment and targeted coverage. Our software-defined orbits let you track assets, borders, or adversaries at will.</p>
+          </div>
+          <div class="rounded-lg overflow-hidden shadow-lg border border-gray-700 tech-card" data-aos="fade-left">
+            <img src="https://i.pinimg.com/736x/af/df/8b/afdf8b689b359dc99ad27ff6934409d0.jpg" alt="Satellite imagery" class="w-full h-full object-cover">
+          </div>
         </div>
-        <div class="rounded-lg overflow-hidden shadow-lg border border-gray-700 tech-card" data-aos="fade-left">
-          <img src="image.jpg" alt="Satellite imagery" class="w-full h-full object-cover">
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg border border-gray-700 tech-card" data-aos="fade-right">
+            <img src="https://i.pinimg.com/736x/d0/f0/d7/d0f0d76b1eeb7b09f988c90de53555c6.jpg" alt="AI Drone" class="w-full h-full object-cover">
+            <!-- <img src="https://i.pinimg.com/736x/6d/f2/72/6df2720f8c499eefded98e1e17a84bf5.jpg" alt="AI Drone" class="w-full h-full object-cover"> -->
+          </div>
+          <div class="order-1 md:order-2" data-aos="fade-left">
+            <h3 class="text-3xl font-bold mb-4">AI integrated drones for electronic warfare</h3>
+            <p class="text-gray-400">Our custom AI engines autonomously reverse-engineer binaries, hunt for vulnerabilities, and prioritize targets — operating as the first line of digital reconnaissance.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -199,6 +270,21 @@
         once: true,
         offset: 100
       });
+
+      // Hero section scroll animation
+      const heroContent = document.querySelector('.hero-content');
+      let hasScrolled = false;
+
+      function checkScroll() {
+        if (window.scrollY > 50 && !hasScrolled) {
+          heroContent.classList.add('visible');
+          hasScrolled = true;
+        }
+      }
+
+      window.addEventListener('scroll', checkScroll);
+      // Check on initial load
+      checkScroll();
 
       // Hamburger Menu Functionality
       const hamburger = document.getElementById('hamburger');
